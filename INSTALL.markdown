@@ -30,3 +30,12 @@ http://npmjs.org/
 
     $ npm install redis irc
 
+## Config:
+
+Edit config.js.dist with the names and channels that you want the rename to config.js
+
+## Run:
+
+Once config.js is in place run with
+
+    $ ./run.sh
