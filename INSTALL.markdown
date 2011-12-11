@@ -38,4 +38,4 @@ Edit config.js.dist with the names and channels that you want the rename to conf
 
 Once config.js is in place run with
 
-    $ ./run.sh
+    $ ./start.sh
