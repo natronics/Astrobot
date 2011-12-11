@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Stop Bot
-screen -X quit -S nodeIRCbot
+screen -S nodeIRCbot -X quit
+screen -S spaceListener -X quit
