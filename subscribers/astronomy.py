@@ -76,8 +76,9 @@ class Portland(object):
     sunset  = (sunset.hour  + (sunset.minute  / 60.0) + (sunset.second  / 3660.0))
     
     sunlight = sunset - sunrise
-
-    """    
+    sunlight_hours = sunlight
+    
+    # Graph
     sunrise  = int(round(self.map_range(0, length, 0, 24, sunrise)))
     sunset   = int(round(self.map_range(0, length, 0, 24, 24-  sunset)))
     sunlight = int(round(self.map_range(0, length, 0, 24, sunlight)))
@@ -94,9 +95,8 @@ class Portland(object):
     
     graph += " " * (sunset - 1)
     graph += "]"
-    print  "  astrobot | [1234567890123456789012345678901234567890]"
-    """
-    return "There are %0.2f hours of sunlight today" % sunlight
+
+    return "%0.2f hours of sunlight today: %s" % (sunlight, graph)
 
 class portland_listener(object):
   
