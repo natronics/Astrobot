@@ -2,7 +2,7 @@ import subscribers.spacecraft
 import subscribers.astronomy
 
 # Fake IRC Channel
-fakeuser = "ircguy42"
+fakeuser = "guy42"
 botname  = "astrobot"
 
 def fake_client_say(user, message):
@@ -25,3 +25,6 @@ fake_client_say(botname, pdx.sunset())
 
 fake_client_say(fakeuser, "!sunrise")
 fake_client_say(botname, pdx.sunrise())
+
+fake_client_say(fakeuser, "!daylight")
+fake_client_say(botname, pdx.day())
