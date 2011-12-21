@@ -165,6 +165,11 @@ class Portland(object):
     
     return rise_time, set_time, transit_time, constellation
 
+  def mercury(self):
+    rise_time, set_time, transit_time, constellation = self.planet(ephem.Mercury())
+    symbol = unichr(0x263f)
+    return "%s Rise: %s, Transit: %s, Set: %s. In the constellation %s" % (symbol, rise_time, set_time, transit_time, constellation)
+    
   def venus(self):
     rise_time, set_time, transit_time, constellation = self.planet(ephem.Venus())
     symbol = unichr(0x2640)
@@ -271,7 +276,9 @@ class portland_listener(object):
             Bot.say(channel, self.portland.sun_today())
           if "!moon" in text.lower() or "!moonrise" in text.lower() or "!moonset" in text.lower() or "!moonphase" in text.lower():
             Bot.say(channel, self.portland.moon())
-          if "!venus " in text.lower():
+          if "!mercury" in text.lower():
+            Bot.say(channel, self.portland.mercury())
+          if "!venus" in text.lower():
             Bot.say(channel, self.portland.venus())
           if "!mars" in text.lower():
             Bot.say(channel, self.portland.mars())
@@ -285,7 +292,7 @@ class portland_listener(object):
             Bot.say(channel, self.portland.neptune())
           if "!pluto" in text.lower():
             Bot.say(channel, sender + ": " + "Pluto isn't a planet! >:o")
-          if "!time" in text.lower():
+          if "!time" == text.lower():
             Bot.say(channel, self.portland.localtime())
             Bot.say(channel, self.portland.utc())
             Bot.say(channel, self.portland.solar_time())

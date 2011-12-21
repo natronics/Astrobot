@@ -8,9 +8,10 @@ botname  = "astrobot"
 def fake_client_say(user, message):
   print "%10s | %s" % (user, message)
 
-msl   = subscribers.spacecraft.MSL()
-juno  = subscribers.spacecraft.Juno()
-pdx   = subscribers.astronomy.Portland()
+msl     = subscribers.spacecraft.MSL()
+juno    = subscribers.spacecraft.Juno()
+pdx     = subscribers.astronomy.Portland()
+launch  = subscribers.spacecraft.Launches()
 
 fake_client_say(fakeuser, "I'm talking in an IRC channel")
 
@@ -34,6 +35,9 @@ fake_client_say(botname, pdx.sun_today())
 
 fake_client_say(fakeuser, "!moon")
 fake_client_say(botname, pdx.moon())
+
+fake_client_say(fakeuser, "!mercury")
+fake_client_say(botname, pdx.mercury())
 
 fake_client_say(fakeuser, "!venus")
 fake_client_say(botname, pdx.venus())
@@ -60,3 +64,8 @@ fake_client_say(botname, pdx.sidereal_time())
 fake_client_say(botname, pdx.unixtime())
 fake_client_say(botname, pdx.jd())
 
+fake_client_say(fakeuser, "!falcon")
+fake_client_say(botname, launch.launch("falcon9-cots23"))
+
+fake_client_say(fakeuser, "!soyuz")
+fake_client_say(botname, launch.launch("SoyuzTMA-03M"))

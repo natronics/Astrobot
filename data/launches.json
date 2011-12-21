@@ -1,0 +1,9 @@
+{   "list": ["falcon9-cots23","SoyuzTMA-03M"]
+  , "launches":
+    {
+        "falcon9-cots23": {"launch": 1328601600, "location": "KSC", "inclination": 51.6
+          , "booster": "Falcon 9", "payload": "Dragon"}
+      , "SoyuzTMA-03M": {"launch": 1324473360, "location": "Baikonur", "inclination": 51.6
+          , "booster": "Soyuz", "payload": "Soyuz, (Pettit, Kononenko and Kuipers)"}
+    }
+}

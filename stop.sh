@@ -3,8 +3,8 @@
 # Stop all services
 stop_all ()
 {
-  start_bot
-  start_listen
+  stop_bot
+  stop_listen
 }
 
 # Stop just the IRC bot (nodejs)
