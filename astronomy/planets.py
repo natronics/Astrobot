@@ -34,4 +34,4 @@ class Planet(object):
     def today(self):
         return {'rise': self.risetime()}
 
-Sol = Planet("the sun")
+Sol = Planet(ephem.Sun())
