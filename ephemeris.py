@@ -13,6 +13,8 @@ def test(message):
 @zen.simple_command('sun', desc="compute sun angle, rise, set, etc.")
 def sun(message):
 
+    sol = planets.Sol
+    sol.set_now()
     info = planets.Sol.today()
     return 'rise: '+info['rise']
 
