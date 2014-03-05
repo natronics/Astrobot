@@ -4,7 +4,11 @@ import datetime
 portland = ephem.Observer()
 portland.lat = "45.51200"
 portland.lon = "-122.631007"
-portland.elevation = 15
+portland.elevation = 50
+
+def strfy(dt):
+    return dt.strftime("%I:%M:%S %p").lower()
+
 
 class Planet(object):
     """ Represent a planet
@@ -29,9 +33,10 @@ class Planet(object):
     def risetime(self):
         self.obsv.date = self.now
         rise = ephem.localtime(self.obsv.next_rising(self.planet))
-        return rise.strftime("%I:%M:%S %p").lower()
+        return rise
 
     def today(self):
-        return {'rise': self.risetime()}
+        return {'rise': strfy(self.risetime())}
+
 
 Sol = Planet(ephem.Sun())
