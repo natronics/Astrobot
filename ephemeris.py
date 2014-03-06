@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import json
 from astronomy import planets
 from zenircbot_api import ZenIRCBot

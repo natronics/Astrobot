@@ -7,6 +7,9 @@ portland.lat = "45.51200"
 portland.lon = "-122.631007"
 portland.elevation = 50
 
+local_tz = pytz.timezone('US/Pacific')
+
+
 def strfy(dt):
     return dt.strftime("%I:%M:%S %p").lower()
 
@@ -38,7 +41,8 @@ class Planet(object):
         return rise
 
     def today(self):
-        return {'rise': strfy(self.risetime())}
+        return {'rise': strfy(self.risetime().astimezone(local_tz)
+)}
 
 
 Sol = Planet(ephem.Sun())
