@@ -13,7 +13,7 @@ local_tz = pytz.timezone('US/Pacific')
 def strfy(dt):
     if dt.second > 30:
         dt.replace(minutes=(dt.minute + 1))
-    return dt.strftime("%a %I:%M:%S %p").lower()
+    return dt.strftime("%a %I:%M %p").lower()
 
 
 class Planet(object):
