@@ -49,3 +49,5 @@ class Planet(object):
 
 
 Sol = Planet(ephem.Sun())
+Venus =  Planet(ephem.Venus())
+

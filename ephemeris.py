@@ -11,7 +11,15 @@ def sun(message):
 
     sol = planets.Sol
     sol.set_now()
-    info = planets.Sol.today()
+    info = sol.today()
+    return 'rise: '+info['rise']
+
+@zen.simple_command('venus', desc="compute sun angle, rise, set, etc.")
+def sun(message):
+
+    v = planets.Venus
+    v.set_now()
+    info = v.today()
     return 'rise: '+info['rise']
 
 
