@@ -26,7 +26,7 @@ class TestPlanet(unittest.TestCase):
     def setUp(self):
 
         self.sol = planets.Sol
-        self.sol.set_now(datetime.datetime(2000,1,1))
+        self.sol.set_now(datetime.datetime(2000,1,1, tzinfo=pytz.utc))
 
         portland = ephem.Observer()
         portland.lat = "45.5"

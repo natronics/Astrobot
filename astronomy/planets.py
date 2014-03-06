@@ -11,7 +11,9 @@ local_tz = pytz.timezone('US/Pacific')
 
 
 def strfy(dt):
-    return dt.strftime("%I:%M:%S %p").lower()
+    if dt.second > 30:
+        dt.replace(minutes=(dt.minute + 1))
+    return dt.strftime("%a %I:%M:%S %p").lower()
 
 
 class Planet(object):
@@ -28,8 +30,9 @@ class Planet(object):
         self.now = datetime.datetime.utcnow()
         self.obsv = portland
 
-    def set_now(self, dt=datetime.datetime.utcnow()):
-        self.now = dt
+    def set_now(self, dt=datetime.datetime.utcnow().replace(tzinfo=pytz.utc)):
+        local = dt.astimezone(local_tz)
+        self.now = datetime.datetime(local.year, local.month, local.day, dt.hour, dt.minute, dt.second)
 
     def set_observer(self, observer):
         self.obsv = observer

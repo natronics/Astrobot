@@ -20,4 +20,5 @@ def sun(message):
     return 'rise: '+info['rise']
 
 
-zen.listen()
+if __name__ == '__main__':
+    zen.listen()
