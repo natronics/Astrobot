@@ -2,6 +2,10 @@ import unittest
 from astronomy import planets
 import ephem
 import datetime
+import pytz
+
+local_tz = pytz.timezone('US/Pacific')
+
 
 class TestPlanet(unittest.TestCase):
     """Data from <http://aa.usno.navy.mil/data/docs/RS_OneDay.php>
@@ -33,8 +37,8 @@ class TestPlanet(unittest.TestCase):
 
     def test_sunrise(self):
         
-        actual_rise = datetime.datetime(2000,1,1, 7, 51, 00)
-        rise = self.sol.risetime()
+        actual_rise = datetime.datetime(2000,1,1, 7, 51, 00, tzinfo=local_tz)
+        rise = self.sol.risetime().astimezone(local_tz)
 
         # sunrise within two minutes of historical data
         self.assertLess((actual_rise - rise).seconds, 120)

@@ -1,4 +1,5 @@
 import ephem
+import pytz
 import datetime
 
 portland = ephem.Observer()
@@ -32,7 +33,8 @@ class Planet(object):
 
     def risetime(self):
         self.obsv.date = self.now
-        rise = ephem.localtime(self.obsv.next_rising(self.planet))
+        rise = (self.obsv.next_rising(self.planet)).datetime()
+        rise = rise.replace(tzinfo=pytz.utc)
         return rise
 
     def today(self):
