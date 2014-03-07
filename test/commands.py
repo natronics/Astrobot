@@ -9,4 +9,5 @@ class TestSun(unittest.TestCase):
     def test_response(self):
 
         r = ephemeris.sun('!sun')
+        print r
         self.assertEqual(type(r), str)
